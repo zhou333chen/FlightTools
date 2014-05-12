@@ -12,11 +12,21 @@
     <string name="title_icao_iata2">ICAO &amp; IATA</string>    
     <string name="title_calculator1">计算器</string>
     <string name="title_calculator2">Calculator</string>
+    <string name="title_engineering1">航空计算</string>
+    <string name="title_engineering2">Aerospace</string>
+    <string name="title_engineering3">Computing</string>
     <string name="edit_mark">请输入查询的内容</string>
     <string name="button_search">查询</string>
     <string name="warning1">抱歉！</string>  
     <string name="warning2">未找到结果</string> 
     
+    <string name="tab1chs">侧风分量</string>
+    <string name="tab1eng">Cross Wind Component</string>
+    <string name="tab2chs">飞行纪录本</string>
+    <string name="tab2eng">Flight Log</string>
+    <string name="tab3chs">时间计算器</string>
+    <string name="tab3eng">Time Calculator</string>
+        
     <string name="dictionary1">民航词典</string>
 	<string name="dictionary2">civil aviation</string>
 	<string name="dictionary3">dictionary</string>

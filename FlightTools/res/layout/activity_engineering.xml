@@ -2,15 +2,179 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".EngineeringActivity" >
+    android:background="@drawable/background"
+    tools:context=".EngineeringActivity" 
+    xmlns:app="http://schemas.android.com/apk/res/com.app.flighttools.view">
 
-    <com.app.flighttools.view.CompassView 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </com.app.flighttools.view.CompassView>
+    <RelativeLayout
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/bg_title" >
+
+        <ImageView
+            android:id="@+id/image_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center_vertical"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:src="@drawable/tag_back" />
+
+        <com.app.flighttools.view.MagicTextView
+            android:id="@+id/tv_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/image_back"
+            android:text="@string/title_engineering1"
+            android:textColor="#000000"
+            android:textSize="22dp" />
+
+        <com.app.flighttools.view.MagicTextView
+            android:id="@+id/tv_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/title_engineering2"
+            android:textColor="#1FFFFFFF"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:strokeColor="#969696"
+            app:strokeJoinStyle="miter"
+            app:strokeWidth="1" />
+
+        <com.app.flighttools.view.MagicTextView
+            android:id="@+id/tv_title3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_title2"
+            android:layout_marginRight="10dp"
+            android:text="@string/title_engineering3"
+            android:textColor="#1FFFFFFF"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:strokeColor="#969696"
+            app:strokeJoinStyle="miter"
+            app:strokeWidth="1" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_tab"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/layout_title"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_tab" >
+        
+        <RelativeLayout
+            android:id="@+id/layout_tab1"
+        	android:layout_width="0dip"
+        	android:layout_height="match_parent"
+        	android:gravity="center_vertical|left"
+			android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/tv_tab1eng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/tv_tab1chs"
+                android:textStyle="bold"
+                android:text="@string/tab1eng"
+                android:textColor="#99000000"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/tv_tab1chs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/tab1chs"
+                android:textColor="#99000000"
+                android:textSize="15dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layout_tab2"
+        	android:layout_width="0dip"
+        	android:layout_height="match_parent"
+        	android:gravity="center"
+			android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/tv_tab2eng"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+               android:gravity="center_horizontal"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/tv_tab2chs"
+                android:textStyle="bold"
+                android:text="@string/tab2eng"
+                android:textColor="#000000"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/tv_tab2chs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/tab2chs"
+                android:textColor="#000000"
+                android:textSize="15dp" />
+        </RelativeLayout>
+        
+        <RelativeLayout
+            android:id="@+id/layout_tab3"
+        	android:layout_width="0dip"
+        	android:layout_height="match_parent"
+        	android:gravity="center_vertical|right"
+			android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/tv_tab3eng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/tv_tab3chs"
+                android:textStyle="bold"
+                android:text="@string/tab3eng"
+                android:textColor="#99000000"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/tv_tab3chs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:text="@string/tab3chs"
+                android:textColor="#99000000"
+                android:textSize="15dp" />
+        </RelativeLayout>
+    </LinearLayout>
     
+    <FrameLayout
+        android:id="@+id/maincontent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layout_tab" >
+    </FrameLayout>
 </RelativeLayout>

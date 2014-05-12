@@ -9,6 +9,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ public class CalculatorActivity extends Activity implements OnClickListener{
 	private TextView tv_last;
 	private TextView tv_now;
 	private TextView tv_result;
+	private ImageView image_back;
 	private StringBuilder equation;
 	private float height;
 	private boolean ifResult = false;
@@ -37,6 +39,7 @@ public class CalculatorActivity extends Activity implements OnClickListener{
 		tv_last = (TextView)findViewById(R.id.tv_last);
 		tv_now = (TextView)findViewById(R.id.tv_now);
 		tv_result = (TextView)findViewById(R.id.tv_result);
+		image_back = (ImageView)findViewById(R.id.image_back);
 		tv_now.setMovementMethod(ScrollingMovementMethod.getInstance());
 		findViewById(R.id.button_0).setOnClickListener(this);
 		findViewById(R.id.button_1).setOnClickListener(this);
@@ -56,6 +59,15 @@ public class CalculatorActivity extends Activity implements OnClickListener{
 		findViewById(R.id.button_delete).setOnClickListener(this);
 		findViewById(R.id.button_clear).setOnClickListener(this);
 		findViewById(R.id.button_equal).setOnClickListener(this);
+		//返回上级页面
+		image_back.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
 	}
 
 	@Override
