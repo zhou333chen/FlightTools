@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="paint_text">#000000</color>
+    <color name="paint_compass">#90EE90</color>
+    <color name="paint_wind">#FF0000</color>
+    <color name="paint_result">#0000FF</color>
+    <color name="bg_title">#3eb1bf</color> 
+    <color name="tv_white">#FFFFFF</color>
+    <color name="table_gray">#EBEBEB</color>
+    
+</resources>

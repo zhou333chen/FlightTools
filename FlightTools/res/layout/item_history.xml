@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="1dp"
+        android:layout_height="30dp"
+        android:background="@color/table_gray"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
+    
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/table_gray"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="1dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/table_gray" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="1dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/table_gray" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignBottom="@+id/view1"
+        android:layout_alignParentLeft="true"
+        android:background="@color/table_gray" />
+
+    <TextView
+        android:id="@+id/tv_history_word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view2"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/view1"
+        android:text="screw"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_history_explain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_history_word"
+        android:layout_alignBottom="@+id/tv_history_word"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/view3"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="scrsa;dsadsadasdsadsadasdasdew"
+        android:textSize="20sp" />
+
+</RelativeLayout>

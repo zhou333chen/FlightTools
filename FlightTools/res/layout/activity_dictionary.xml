@@ -1,0 +1,242 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:text="http://schemas.android.com/apk/res/com.app.flighttools.view" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".DictionaryActivity" >
+
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="0dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+
+   	<RelativeLayout
+        android:id="@+id/layout_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_title" >
+
+        <ImageView
+            android:id="@+id/image_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center_vertical"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:src="@drawable/tag_back" />
+
+        <com.app.flighttools.view.MagicTextView
+            android:id="@+id/tv_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/image_back"
+            android:text="@string/title_dictionary1"
+            android:textColor="#000000"
+            android:textSize="22dp"/>
+
+       <com.app.flighttools.view.MagicTextView
+           android:id="@+id/tv_title2"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:layout_alignParentTop="true"
+           android:layout_marginTop="5dp"
+           android:layout_marginRight="20dp"
+           android:text="@string/title_dictionary2"
+           android:textColor="#1FFFFFFF"
+           android:textSize="15dp"
+           android:textStyle="bold" 
+           text:strokeColor="#969696"  
+   		   text:strokeJoinStyle="miter"  
+    	   text:strokeWidth="1"/>
+
+       <com.app.flighttools.view.MagicTextView
+           android:id="@+id/tv_title3"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/tv_title2"
+		   android:layout_alignParentRight="true"
+           android:layout_marginRight="10dp"
+           android:text="@string/title_dictionary3"
+           android:textColor="#1FFFFFFF"
+           android:textSize="15dp"
+           android:textStyle="bold"
+           text:strokeColor="#969696"  
+   		   text:strokeJoinStyle="miter"  
+    	   text:strokeWidth="1" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button_search"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignRight="@+id/layout_title"
+        android:layout_below="@+id/layout_title"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_button_search"
+        android:text="@string/button_search" />
+
+    <ImageView
+        android:id="@+id/image_bg_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/layout_title"
+        android:layout_below="@+id/layout_title"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@+id/button_search"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_edittext" />
+
+    <EditText
+        android:id="@+id/edit_in"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_alignLeft="@+id/layout_title"
+        android:layout_alignRight="@+id/image_bg_edittext"
+        android:layout_below="@+id/layout_title"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/shape_edittext"
+        android:ems="10"
+        android:hint="@string/edit_mark"
+        android:singleLine="true" >
+    </EditText>
+
+    <RelativeLayout
+        android:id="@+id/relativelayout_content"
+        android:layout_width="wrap_content"
+        android:layout_height="230dp"
+        android:layout_below="@id/image_bg_edittext"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_blue1" >
+
+        <ListView
+            android:id="@+id/list_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF"
+            android:visibility="gone" >
+        </ListView>
+
+        <ScrollView
+            android:id="@+id/layout_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF" >
+
+            <LinearLayout
+                android:id="@+id/LinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_word"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:text="词汇"
+                    android:textSize="30sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_property"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:text="词性"
+                    android:textSize="20sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_explain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:text="解释"
+                    android:textSize="25sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_warning1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/warning1"
+                    android:textSize="30sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_warning2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/warning2"
+                    android:textSize="25sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativelayout_history1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relativelayout_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_history" >
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativelayout_history2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relativelayout_history1"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/bg_blue2" >
+
+        <ListView
+            android:id="@+id/list_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:divider="@null" >
+        </ListView>
+    </RelativeLayout>
+
+</RelativeLayout>
