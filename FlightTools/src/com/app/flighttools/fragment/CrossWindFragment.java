@@ -5,13 +5,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.wheel.test.OnWheelScrollListener;
-import android.wheel.test.WheelView;
-import android.wheel.test.adapter.ArrayWheelAdapter;
 import android.widget.TextView;
 
 import com.app.flighttools.view.CompassView;
 import com.app.flighttools.view.R;
+import com.app.flighttools.view.WheelView;
+import com.app.flighttools.wheel.ArrayWheelAdapter;
+import com.app.flighttools.wheel.OnWheelScrollListener;
 
 public class CrossWindFragment extends Fragment implements OnWheelScrollListener{
 		
