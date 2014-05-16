@@ -1,17 +1,147 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/bg_blue1" >
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="风速"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView2"
+                android:layout_centerHorizontal="true"
+                android:text="speed"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView1"
+                android:layout_centerHorizontal="true"
+                android:text="wind"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <com.app.flighttools.view.WheelView
+            android:id="@+id/windspeed1"
+            android:layout_width="50dp"
+            android:layout_height="90dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/relativeLayout2" />
+
+        <com.app.flighttools.view.WheelView
+            android:id="@+id/windspeed2"
+            android:layout_width="50dp"
+            android:layout_height="90dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/windspeed1" />
+
+        <com.app.flighttools.view.WheelView
+            android:id="@+id/windspeed3"
+            android:layout_width="80dp"
+            android:layout_height="90dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/windspeed2"
+            android:layout_marginRight="25dp" />
+    </RelativeLayout>
+    
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/tv_wind"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="38dp"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_alignLeft="@+id/relativeLayout1"
+        android:textSize="50sp"
+        android:text="风向" />
 
+    <TextView
+        android:id="@+id/tv_wind_angle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_wind"
+        android:layout_alignBottom="@+id/tv_wind"
+        android:layout_alignRight="@+id/relativeLayout1"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        android:text="50°" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1dp"
+		android:layout_alignBottom="@+id/output_unit"
+        android:layout_toRightOf="@+id/output_unit" >
+
+        <TextView
+            android:id="@+id/tv_output1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="输出单位"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_output2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_output1"
+            android:layout_centerHorizontal="true"
+            android:text="output"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_output3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_output2"
+            android:layout_centerHorizontal="true"
+            android:text="unit"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+    
+    <com.app.flighttools.view.CompassView
+        android:id="@+id/compassView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/relativeLayout1" />
+    
+    <com.app.flighttools.view.WheelView
+        android:id="@+id/output_unit"
+        android:layout_width="70dp"
+        android:layout_height="90dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp" />
 </RelativeLayout>
