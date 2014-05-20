@@ -108,6 +108,8 @@
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp"
         android:layout_marginTop="17dp"
+        android:gravity="center"
+        android:textStyle="bold"
         android:background="@drawable/shape_edittext"
         android:ems="10"
         android:hint="@string/edit_mark"

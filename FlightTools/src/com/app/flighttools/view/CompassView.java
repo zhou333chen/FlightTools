@@ -34,10 +34,10 @@ public class CompassView extends View{
 	private Paint windYPaint;//风的垂直分量
 	private Paint windXPaint;//风的水平分量
 	private Paint textPaint;	//文字的画笔
-	private Paint resultPaint;	//风速在分量箭头的画笔
 	private Bitmap plane;
 	private Bitmap hdg;
-	private Bitmap compass;
+	private Bitmap compass1;
+	private Bitmap compass2;
 	private Bitmap wind;
 	private Bitmap windY;
 	private Bitmap windX;
@@ -47,6 +47,7 @@ public class CompassView extends View{
 	private float endY;	//滑动罗盘的终点y坐标
 	private PaintFlagsDrawFilter pfd;
 	private float ratio;
+	private boolean isWind = false;
 	
 	public CompassView(Context context) {
 		super(context);
@@ -69,15 +70,15 @@ public class CompassView extends View{
 			centerY = getHeight()/2;
 			initResource();
 		}
-		//绘制罗盘
-		canvas.drawBitmap(hdg, centerX-hdg.getWidth()/2, centerY-compass.getHeight()*0.8f/2-hdg.getHeight(), hdgPaint);
-		Matrix matrixCompass = new Matrix();
-	    matrixCompass.postTranslate(centerX-compass.getWidth()/2, centerY-compass.getHeight()/2);
-	    matrixCompass.postRotate(-compassAngle, centerX ,centerY);
-		canvas.drawBitmap(compass, matrixCompass, compassPaint);
-		canvas.drawText(compassAngle+"", centerX-hdg.getWidth()/2, centerY-compass.getHeight()*0.8f/2-hdg.getHeight()*142/197, textPaint);
-		//绘制飞机
+		//绘制罗盘背景和飞机
+		canvas.drawBitmap(hdg, centerX-hdg.getWidth()/2, centerY-compass1.getHeight()*0.8f/2-hdg.getHeight(), hdgPaint);
+		canvas.drawBitmap(compass1, centerX-compass1.getWidth()/2, centerY-compass1.getHeight()/2, compassPaint);
 		canvas.drawBitmap(plane, centerX - plane.getWidth()/2+2, centerY - plane.getHeight()/2, planePaint);
+		Matrix matrixCompass = new Matrix();
+	    matrixCompass.postTranslate(centerX-compass2.getWidth()/2, centerY-compass2.getHeight()/2);
+	    matrixCompass.postRotate(-compassAngle, centerX ,centerY);
+		canvas.drawBitmap(compass2, matrixCompass, compassPaint);
+		canvas.drawText(compassAngle+"", centerX-hdg.getWidth()/2, centerY-compass1.getHeight()*0.8f/2-hdg.getHeight()*142/197, textPaint);
 		//绘制风向
 		Matrix matrixWind = new Matrix();
 		int theta = (windAngle - compassAngle);
@@ -141,15 +142,17 @@ public class CompassView extends View{
 		windYPaint = new Paint();
 		windXPaint = new Paint();
 		textPaint = new Paint();
-		resultPaint = new Paint();
 		ByteArrayOutputStream baos = new ByteArrayOutputStream(); 
-		Bitmap compassTemp = BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.tag_compass);
-		ratio = 0.6f*Math.min(centerX*2/compassTemp.getWidth(), centerY*2/compassTemp.getHeight());
+		Bitmap compass1Temp = BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.tag_compass1);
+		ratio = 0.6f*Math.min(centerX*2/compass1Temp.getWidth(), centerY*2/compass1Temp.getHeight());
 		textPaint.setTextSize(70*ratio);
 		Matrix matrix = new Matrix(); 
 		matrix.postScale(ratio, ratio);
-		compass = Bitmap.createBitmap(compassTemp,0,0,compassTemp.getWidth(),compassTemp.getHeight(),matrix,true);
-		compassTemp.recycle();
+		compass1 = Bitmap.createBitmap(compass1Temp,0,0,compass1Temp.getWidth(),compass1Temp.getHeight(),matrix,true);
+		compass1Temp.recycle();
+		Bitmap compass2Temp = BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.tag_compass2);
+		compass2 = Bitmap.createBitmap(compass2Temp,0,0,compass2Temp.getWidth(),compass2Temp.getHeight(),matrix,true);
+		compass2Temp.recycle();
 		Bitmap planeTemp = BitmapFactory.decodeResource(this.getContext().getResources(),R.drawable.tag_plane);
 		plane = Bitmap.createBitmap(planeTemp,0,0,planeTemp.getWidth(),planeTemp.getHeight(),matrix,true);
 		planeTemp.recycle();
@@ -175,6 +178,12 @@ public class CompassView extends View{
 				case MotionEvent.ACTION_DOWN:
 					startX = event.getX();
 					startY = event.getY();
+					float x = centerX-wind.getHeight()*314/400*sin(compassAngle-windAngle);
+					float y = centerY-wind.getHeight()*314/400*cos(compassAngle-windAngle);
+					if(Math.abs(startX-x)<wind.getWidth()/2 && Math.abs(startY-y)<wind.getWidth()/2)
+						isWind = true;
+					else
+						isWind = false;
 					break;
 				case MotionEvent.ACTION_MOVE:
 					endX = event.getX();
@@ -194,14 +203,14 @@ public class CompassView extends View{
 					{
 						if(deltaX < 0 && deltaY > 0)
 						{
-							if(a > radius)
+							if(!isWind)
 								compassAngle += deltaTheta;
 							else
 								windAngle -= deltaTheta;
 						}
 						else if(deltaX > 0 && deltaY < 0)
 						{
-							if(a > radius)
+							if(!isWind)
 								compassAngle -= deltaTheta;
 							else
 								windAngle += deltaTheta;
@@ -211,14 +220,14 @@ public class CompassView extends View{
 					{
 						if(deltaX > 0 && deltaY > 0)
 						{
-							if(a > radius)
+							if(!isWind)
 								compassAngle += deltaTheta;
 							else
 								windAngle -= deltaTheta;
 						}
 						else if(deltaX < 0 && deltaY < 0)
 						{
-							if(a > radius)
+							if(!isWind)
 								compassAngle -= deltaTheta;
 							else
 								windAngle += deltaTheta;
@@ -228,14 +237,14 @@ public class CompassView extends View{
 					{
 						if(deltaX > 0 && deltaY < 0)
 						{
-							if(a > radius)
+							if(!isWind)
 								compassAngle += deltaTheta;
 							else
 								windAngle -= deltaTheta;
 						}
 						else if(deltaX < 0 && deltaY > 0)
 						{
-							if(a > radius)
+							if(!isWind)
 								compassAngle -= deltaTheta;
 							else
 								windAngle += deltaTheta;
@@ -245,14 +254,14 @@ public class CompassView extends View{
 					{
 						if(deltaX < 0 && deltaY < 0)
 						{
-							if(a > radius)
+							if(!isWind)
 								compassAngle += deltaTheta;
 							else
 								windAngle -= deltaTheta;
 						}
 						else if(deltaX > 0 && deltaY > 0)
 						{
-							if(a > radius)
+							if(!isWind)
 								compassAngle -= deltaTheta;
 							else
 								windAngle += deltaTheta;

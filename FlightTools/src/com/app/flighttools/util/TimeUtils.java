@@ -38,7 +38,7 @@ public class TimeUtils {
 		return data;
 	}
 	
-	public static String sum(String s1, String s2)
+	public static String add(String s1, String s2)
 	{
 		if(s1.equals(""))
 			s1 = "00:00";
@@ -57,6 +57,32 @@ public class TimeUtils {
 			hour += minute/60;
 			minute %= 60;
 		}
+		if(minute == 0)
+			return hour+":00";
+		if(minute <10)
+			return hour+":0"+minute;
+		return hour+":"+minute;
+	}
+	
+	public static String sub(String s1, String s2)
+	{
+		if(s1.equals(""))
+			s1 = "00:00";
+		if(s2.equals(""))
+			s2 = "00:00";
+		int hour = 0;
+		int minute = 0;
+		String[] temp1 = s1.split(":");
+		String[] temp2 = s2.split(":");
+		hour = Integer.parseInt(temp1[0]) - Integer.parseInt(temp2[0]);
+		minute = Integer.parseInt(temp1[1]) - Integer.parseInt(temp2[1]);
+		if(minute < 0)
+		{
+			hour -= 1;
+			minute += 60;
+		}
+		if(hour < 0)
+			return null;
 		if(minute == 0)
 			return hour+":00";
 		if(minute <10)

@@ -64,6 +64,7 @@ public class FlightLogFragment extends Fragment implements OnClickListener{
 		list_history = (HorizontalListView)getActivity().findViewById(R.id.list_history);
 		tv_history = (TextView)getActivity().findViewById(R.id.tv_history);
 		tv_result = (TextView)getActivity().findViewById(R.id.tv_result);
+		tv_history.setOnClickListener(this);
 		getActivity().findViewById(R.id.button_0).setOnClickListener(this);
 		getActivity().findViewById(R.id.button_1).setOnClickListener(this);
 		getActivity().findViewById(R.id.button_2).setOnClickListener(this);
@@ -81,25 +82,6 @@ public class FlightLogFragment extends Fragment implements OnClickListener{
 		dbRead = flightLogHelper.getReadableDatabase();
 		dbWrite = flightLogHelper.getWritableDatabase();
 		sumAdapter = new EditListAdapter(getActivity());
-		tv_history.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				if(isHistory)
-				{
-					if(!sumAdapter.confirm())
-					{
-						Toast.makeText(getActivity(), "请重新输入！", Toast.LENGTH_SHORT).show();
-						return;
-					}
-				}
-				isHistory = true;
-				tv_history.setBackgroundColor(Color.LTGRAY);
-				sumAdapter.choose = 11;
-				sumAdapter.notifyDataSetChanged();
-			}
-		});
 		list_sum.setAdapter(sumAdapter);
 		list_sum.setOnItemClickListener(new OnItemClickListener() {
 
@@ -155,6 +137,20 @@ public class FlightLogFragment extends Fragment implements OnClickListener{
 		// TODO Auto-generated method stub
 		switch(v.getId())
 		{
+		case R.id.tv_history:
+			if(isHistory)
+			{
+				if(!sumAdapter.confirm())
+				{
+					Toast.makeText(getActivity(), "请重新输入！", Toast.LENGTH_SHORT).show();
+					return;
+				}
+			}
+			isHistory = true;
+			tv_history.setBackgroundColor(Color.LTGRAY);
+			sumAdapter.choose = 11;
+			sumAdapter.notifyDataSetChanged();
+			break;
 		case R.id.button_0:
 			addNumber("0");
 			break;
@@ -195,9 +191,13 @@ public class FlightLogFragment extends Fragment implements OnClickListener{
 				sumAdapter.deleteNumber();
 			break;
 		case R.id.button_clear:
-			history = "";
-			tv_history.setText(history);
-			sumAdapter.clear();
+			if(isHistory)
+			{
+				history = "";
+				tv_history.setText(history);
+			}
+			else
+				sumAdapter.clear();
 			break;
 		case R.id.button_equal:
 			if(sumAdapter.confirm() && TimeUtils.confirm(history))
@@ -217,12 +217,12 @@ public class FlightLogFragment extends Fragment implements OnClickListener{
 	            values.put("TimeStamp", System.currentTimeMillis());
 	            values.put("History", record);
 	            values.put("Total", sum);
-	            values.put("Sum", TimeUtils.sum(sum, history));
+	            values.put("Sum", TimeUtils.add(sum, history));
 				dbWrite.insert(TABLE_NAME, null, values);
 				HashMap<String, String> list = new HashMap<String, String>();
 				list.put("History", record);
 	            list.put("Total", sum);
-				list.put("Sum", TimeUtils.sum(sum, history));
+				list.put("Sum", TimeUtils.add(sum, history));
 				listHistory.add(0, list);
 				spHitory.notifyDataSetChanged();
 			}
@@ -232,7 +232,7 @@ public class FlightLogFragment extends Fragment implements OnClickListener{
 			}
 			history = "";
 			tv_history.setText(history);
-			sumAdapter.clear();
+			sumAdapter.clearAll();
 			break;
 		default:
 			break;

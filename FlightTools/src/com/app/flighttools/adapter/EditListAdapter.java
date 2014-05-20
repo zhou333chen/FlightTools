@@ -86,7 +86,7 @@ public class EditListAdapter extends BaseAdapter{
 		{
 			if(data[i].length()>4)
 			{
-				result = TimeUtils.sum(result, data[i]);
+				result = TimeUtils.add(result, data[i]);
 			}
 		}
 		return result;
@@ -105,6 +105,12 @@ public class EditListAdapter extends BaseAdapter{
 	}
 	
 	public void clear()
+	{
+		data[choose] = "";
+		notifyDataSetChanged();
+	}
+	
+	public void clearAll()
 	{
 		for(int i=0;i<10;i++)
 			data[i] = "";

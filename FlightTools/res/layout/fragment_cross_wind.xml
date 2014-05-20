@@ -47,7 +47,7 @@
                 android:textStyle="bold" />
         </RelativeLayout>
 
-        <com.app.flighttools.view.WheelView
+        <com.app.flighttools.wheel.WheelView
             android:id="@+id/windspeed1"
             android:layout_width="50dp"
             android:layout_height="90dp"
@@ -55,14 +55,14 @@
             android:layout_marginLeft="20dp"
             android:layout_toRightOf="@+id/relativeLayout2" />
 
-        <com.app.flighttools.view.WheelView
+        <com.app.flighttools.wheel.WheelView
             android:id="@+id/windspeed2"
             android:layout_width="50dp"
             android:layout_height="90dp"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/windspeed1" />
 
-        <com.app.flighttools.view.WheelView
+        <com.app.flighttools.wheel.WheelView
             android:id="@+id/windspeed3"
             android:layout_width="80dp"
             android:layout_height="90dp"
@@ -136,7 +136,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/relativeLayout1" />
     
-    <com.app.flighttools.view.WheelView
+    <com.app.flighttools.wheel.WheelView
         android:id="@+id/output_unit"
         android:layout_width="70dp"
         android:layout_height="90dp"

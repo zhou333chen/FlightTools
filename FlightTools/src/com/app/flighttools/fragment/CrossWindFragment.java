@@ -9,9 +9,9 @@ import android.widget.TextView;
 
 import com.app.flighttools.view.CompassView;
 import com.app.flighttools.view.R;
-import com.app.flighttools.view.WheelView;
 import com.app.flighttools.wheel.ArrayWheelAdapter;
 import com.app.flighttools.wheel.OnWheelScrollListener;
+import com.app.flighttools.wheel.WheelView;
 
 public class CrossWindFragment extends Fragment implements OnWheelScrollListener{
 		

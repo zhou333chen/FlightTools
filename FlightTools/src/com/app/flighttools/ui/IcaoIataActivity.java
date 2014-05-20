@@ -97,7 +97,7 @@ public class IcaoIataActivity extends Activity {
 		spHitory = new SimpleAdapter(this, listHistory, R.layout.item_history, new String[]{"Word", "Explain"}, new int[]{R.id.tv_history_word, R.id.tv_history_explain});
 		list_history.setAdapter(spHitory);
 		listContent = new ArrayList<HashMap<String,String>>();
-		spContent = new SimpleAdapter(this, listContent, R.layout.item_content, new String[]{"Word", "Explain"}, new int[]{R.id.tv_content_word, R.id.tv_content_explain});
+		spContent = new SimpleAdapter(this, listContent, R.layout.item_icao_iata, new String[]{"Three", "Four", "Airport", "English"}, new int[]{R.id.tv_three, R.id.tv_four, R.id.tv_airport, R.id.tv_english});
 		list_content.setAdapter(spContent);
 		icaoiataHelper = new IcaoIataDbHelper(IcaoIataActivity.this, TABLE_NAME, null, 1);
 		dbRead = icaoiataHelper.getReadableDatabase();
@@ -136,7 +136,7 @@ public class IcaoIataActivity extends Activity {
 				InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 				imm.hideSoftInputFromWindow(layout_title.getWindowToken(), 0);
 				in = edit_in.getText().toString();
-				if(in == null || in.equals(""))
+				if(in == null || in.equals("") || in.equals("机场") || in.equals("机") || in.equals("场"))
 					return;
 				searchDialog.show();
 				searchAsyncTask searchAsyncTask = new searchAsyncTask();
@@ -311,12 +311,12 @@ public class IcaoIataActivity extends Activity {
 				{
 					Cell[] cell = cells.get(i);
 					HashMap<String, String> list = new HashMap<String, String>();
-					String word = cell[3].getContents();
-					String explain = cell[4].getContents();
-					list.put("Word", word);
-					list.put("Explain", explain);
+					list.put("Three", cell[1].getContents());
+					list.put("Four", cell[2].getContents());
+					list.put("Airport", cell[3].getContents());
+					list.put("English", cell[4].getContents());
 					listContent.add(list);
-		            history.append(word + ";");
+		            history.append(cell[3].getContents() + ";");
 				}
 				ContentValues values = new ContentValues();  
 				HashMap<String, String> list = new HashMap<String, String>();

@@ -1,395 +1,410 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/LinearLayout1"
+    android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:orientation="vertical"
     tools:context=".MainActivity" >
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:baselineAligned="false"
-        android:orientation="horizontal" >
-
-        <RelativeLayout
-            android:id="@+id/layout_dictionary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="7.5dp"
-            android:layout_weight="1" >
-
-            <ImageView
-                android:id="@+id/image_dictionary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/bg_dictionary" />
-
-            <TextView
-                android:id="@+id/tv_dictionary2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dp"
-                android:layout_below="@+id/tv_dictionary1"
-                android:text="@string/dictionary2"
-                android:textColor="@color/tv_white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignRight="@+id/image_dictionary"
-                android:layout_marginRight="5dp"
-                android:layout_below="@+id/tv_dictionary2"
-                android:text="@string/dictionary3"
-                android:textColor="@color/tv_white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_dictionary1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/tv_dictionary2"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="20dp"
-                android:text="@string/dictionary1"
-                android:textColor="@color/tv_white"
-                android:textSize="30sp" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/layout_abbreviation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7.5dp"
-            android:layout_marginRight="15dp"
-            android:layout_weight="1" >
-
-            <ImageView
-                android:id="@+id/image_abbreviation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/bg_abbreviation" />
-            
-            <TextView
-                android:id="@+id/tv_abbreviation1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:text="@string/abbreviation1"
-                android:textColor="@color/tv_white"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/tv_abbreviation2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dp"
-                android:layout_below="@+id/tv_abbreviation1"
-                android:text="@string/abbreviation2"
-                android:textColor="@color/tv_white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignRight="@+id/image_abbreviation"
-                android:layout_marginRight="5dp"
-                android:layout_below="@+id/tv_abbreviation2"
-                android:text="@string/abbreviation3"
-                android:textColor="@color/tv_white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-    </LinearLayout>
     
-    <LinearLayout
+    <LinearLayout 
+        android:id="@+id/layout_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:baselineAligned="false"
-        android:layout_weight="1"
-        android:orientation="horizontal" >
+        android:visibility="gone"
+        android:background="@drawable/background"
+        android:orientation="vertical">
 
-        <RelativeLayout
-            android:id="@+id/layout_icao_iata"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="7.5dp"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/image_icao_iata"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/bg_icao_iata" />
-            
-            <TextView
-                android:id="@+id/tv_icao_iata1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="12dp"
-                android:layout_marginTop="20dp"
-                android:text="@string/icao_iata1"
-                android:textColor="@color/tv_white"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/tv_icao_iata2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/tv_icao_iata1"
-                android:layout_marginLeft="15dp"
-                android:layout_below="@+id/tv_icao_iata1"
-                android:text="@string/icao_iata2"
-                android:textColor="@color/tv_white"
-                android:textSize="25sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-				android:layout_centerHorizontal="true"
-                android:layout_below="@+id/tv_icao_iata2"
-                android:layout_marginTop="1dp"
-                android:text="@string/icao_iata3"
-                android:textColor="@color/tv_white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/layout_calculator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7.5dp"
-            android:layout_marginRight="15dp"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/image_calculator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:src="@drawable/bg_calculator" />
-            
-            <TextView
-                android:id="@+id/tv_calculator1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:text="@string/calculator1"
-                android:textColor="@color/tv_white"
-                android:textSize="30sp" />
-            
-            <TextView
-                android:id="@+id/tv_calculator2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/tv_calculator1"
-                android:layout_marginTop="5dp"
-                android:text="@string/calculator2"
-                android:textColor="@color/tv_white"
-                android:textStyle="bold"
-                android:textSize="25sp" />
-        </RelativeLayout>
+	    <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:baselineAligned="false"
+	        android:layout_weight="1"
+	        android:orientation="horizontal" >
+	
+	        <RelativeLayout
+	            android:id="@+id/layout_dictionary"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="15dp"
+	            android:layout_marginRight="7.5dp"
+	            android:layout_weight="1" >
+	
+	            <ImageView
+	                android:id="@+id/image_dictionary"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:src="@drawable/bg_dictionary" />
+	
+	            <TextView
+	                android:id="@+id/tv_dictionary2"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignParentLeft="true"
+	                android:layout_marginLeft="10dp"
+	                android:layout_below="@+id/tv_dictionary1"
+	                android:text="@string/dictionary2"
+	                android:textColor="@color/tv_white"
+	                android:textSize="20sp"
+	                android:textStyle="bold" />
+	
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignRight="@+id/image_dictionary"
+	                android:layout_marginRight="5dp"
+	                android:layout_below="@+id/tv_dictionary2"
+	                android:text="@string/dictionary3"
+	                android:textColor="@color/tv_white"
+	                android:textSize="20sp"
+	                android:textStyle="bold" />
+	
+	            <TextView
+	                android:id="@+id/tv_dictionary1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignLeft="@+id/tv_dictionary2"
+	                android:layout_alignParentTop="true"
+	                android:layout_marginTop="20dp"
+	                android:text="@string/dictionary1"
+	                android:textColor="@color/tv_white"
+	                android:textSize="30sp" />
+	
+	        </RelativeLayout>
+	
+	        <RelativeLayout
+	            android:id="@+id/layout_abbreviation"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="7.5dp"
+	            android:layout_marginRight="15dp"
+	            android:layout_weight="1" >
+	
+	            <ImageView
+	                android:id="@+id/image_abbreviation"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:src="@drawable/bg_abbreviation" />
+	            
+	            <TextView
+	                android:id="@+id/tv_abbreviation1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignParentTop="true"
+	                android:layout_centerHorizontal="true"
+	                android:layout_marginTop="20dp"
+	                android:text="@string/abbreviation1"
+	                android:textColor="@color/tv_white"
+	                android:textSize="30sp" />
+	
+	            <TextView
+	                android:id="@+id/tv_abbreviation2"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignParentLeft="true"
+	                android:layout_marginLeft="10dp"
+	                android:layout_below="@+id/tv_abbreviation1"
+	                android:text="@string/abbreviation2"
+	                android:textColor="@color/tv_white"
+	                android:textSize="20sp"
+	                android:textStyle="bold" />
+	
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignRight="@+id/image_abbreviation"
+	                android:layout_marginRight="5dp"
+	                android:layout_below="@+id/tv_abbreviation2"
+	                android:text="@string/abbreviation3"
+	                android:textColor="@color/tv_white"
+	                android:textSize="20sp"
+	                android:textStyle="bold" />
+	        </RelativeLayout>
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:baselineAligned="false"
+	        android:layout_weight="1"
+	        android:orientation="horizontal" >
+	
+	        <RelativeLayout
+	            android:id="@+id/layout_icao_iata"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="15dp"
+	            android:layout_marginRight="7.5dp"
+	            android:layout_weight="1">
+	
+	            <ImageView
+	                android:id="@+id/image_icao_iata"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:src="@drawable/bg_icao_iata" />
+	            
+	            <TextView
+	                android:id="@+id/tv_icao_iata1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignParentLeft="true"
+	                android:layout_alignParentTop="true"
+	                android:layout_marginLeft="12dp"
+	                android:layout_marginTop="20dp"
+	                android:text="@string/icao_iata1"
+	                android:textColor="@color/tv_white"
+	                android:textSize="25sp" />
+	
+	            <TextView
+	                android:id="@+id/tv_icao_iata2"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignLeft="@+id/tv_icao_iata1"
+	                android:layout_marginLeft="15dp"
+	                android:layout_below="@+id/tv_icao_iata1"
+	                android:text="@string/icao_iata2"
+	                android:textColor="@color/tv_white"
+	                android:textSize="25sp"
+	                android:textStyle="bold" />
+	
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+					android:layout_centerHorizontal="true"
+	                android:layout_below="@+id/tv_icao_iata2"
+	                android:layout_marginTop="1dp"
+	                android:text="@string/icao_iata3"
+	                android:textColor="@color/tv_white"
+	                android:textSize="20sp"
+	                android:textStyle="bold" />
+	
+	        </RelativeLayout>
+	
+	        <RelativeLayout
+	            android:id="@+id/layout_calculator"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="7.5dp"
+	            android:layout_marginRight="15dp"
+	            android:layout_weight="1">
+	
+	            <ImageView
+	                android:id="@+id/image_calculator"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignParentTop="true"
+	                android:src="@drawable/bg_calculator" />
+	            
+	            <TextView
+	                android:id="@+id/tv_calculator1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignParentTop="true"
+	                android:layout_centerHorizontal="true"
+	                android:layout_marginTop="30dp"
+	                android:text="@string/calculator1"
+	                android:textColor="@color/tv_white"
+	                android:textSize="30sp" />
+	            
+	            <TextView
+	                android:id="@+id/tv_calculator2"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_centerHorizontal="true"
+	                android:layout_below="@id/tv_calculator1"
+	                android:layout_marginTop="5dp"
+	                android:text="@string/calculator2"
+	                android:textColor="@color/tv_white"
+	                android:textStyle="bold"
+	                android:textSize="25sp" />
+	        </RelativeLayout>
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:baselineAligned="false"
+	        android:layout_weight="1"
+	        android:orientation="horizontal" >
+	
+	        <RelativeLayout
+	            android:id="@+id/layout_engineering"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="15dp"
+	            android:layout_marginRight="7.5dp"
+	            android:layout_weight="1">
+	
+	            <ImageView
+	                android:id="@+id/image_engineering"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:src="@drawable/bg_engineering" />
+	            
+	             <TextView
+	                android:id="@+id/tv_engineering1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignParentTop="true"
+	                android:layout_centerHorizontal="true"
+	                android:layout_marginTop="20dp"
+	                android:text="@string/engineering1"
+	                android:textColor="@color/tv_white"
+	                android:textSize="25sp" />
+	
+	            <TextView
+	                android:id="@+id/tv_engineering2"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignLeft="@+id/tv_engineering1"
+	                android:layout_below="@+id/tv_engineering1"
+	                android:text="@string/engineering2"
+	                android:textColor="@color/tv_white"
+	                android:textSize="20sp"
+	                android:textStyle="bold" />
+	
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignRight="@+id/image_engineering"
+	                android:layout_marginRight="5dp"
+	                android:layout_below="@+id/tv_engineering2"
+	                android:text="@string/engineering3"
+	                android:textColor="@color/tv_white"
+	                android:textSize="20sp"
+	                android:textStyle="bold" />
+	        </RelativeLayout>
+	
+	        <RelativeLayout
+	            android:id="@+id/layout_weather"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="7.5dp"
+	            android:layout_marginRight="15dp"
+	            android:layout_weight="1">
+	
+	            <ImageView
+	                android:id="@+id/image_weather"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignParentTop="true"
+	                android:src="@drawable/bg_weather" />
+	            
+	            <TextView
+	                android:id="@+id/tv_weather1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignParentTop="true"
+	                android:layout_centerHorizontal="true"
+	                android:layout_marginTop="30dp"
+	                android:text="@string/weather1"
+	                android:textColor="@color/tv_white"
+	                android:textSize="30sp" />
+	            
+	            <TextView
+	                android:id="@+id/tv_weather2"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_centerHorizontal="true"
+	                android:layout_below="@id/tv_weather1"
+	                android:layout_marginTop="5dp"
+	                android:text="@string/weather2"
+	                android:textColor="@color/tv_white"
+	                android:textStyle="bold"
+	                android:textSize="25sp" />
+	        </RelativeLayout>
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:baselineAligned="false"
+	        android:layout_weight="1"
+	        android:orientation="horizontal" >
+	
+	        <RelativeLayout
+	            android:id="@+id/layout_more"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="15dp"
+	            android:layout_marginRight="7.5dp"
+	            android:layout_weight="1">
+	
+	            <ImageView
+	                android:id="@+id/image_more"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:src="@drawable/bg_more" />
+	            
+	            <TextView
+	                android:id="@+id/tv_more1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignParentTop="true"
+	                android:layout_centerHorizontal="true"
+	                android:layout_marginTop="30dp"
+	                android:text="@string/more1"
+	                android:textColor="@color/tv_white"
+	                android:textSize="30sp" />
+	            
+	            <TextView
+	                android:id="@+id/tv_more2"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_centerHorizontal="true"
+	                android:layout_below="@id/tv_more1"
+	                android:layout_marginTop="5dp"
+	                android:text="@string/more2"
+	                android:textColor="@color/tv_white"
+	                android:textStyle="bold"
+	                android:textSize="25sp" />          
+	        </RelativeLayout>
+	
+	        <RelativeLayout
+	            android:id="@+id/layout_about"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginLeft="7.5dp"
+	            android:layout_marginRight="15dp"
+	            android:layout_weight="1">
+	
+	            <ImageView
+	                android:id="@+id/image_about"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignParentTop="true"
+	                android:src="@drawable/bg_about" />
+	            
+	            <TextView
+	                android:id="@+id/tv_about1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignParentTop="true"
+	                android:layout_centerHorizontal="true"
+	                android:layout_marginTop="30dp"
+	                android:text="@string/about1"
+	                android:textColor="@color/tv_white"
+	                android:textSize="30sp" />
+	            
+	            <TextView
+	                android:id="@+id/tv_about2"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_centerHorizontal="true"
+	                android:layout_below="@id/tv_about1"
+	                android:layout_marginTop="5dp"
+	                android:text="@string/about2"
+	                android:textColor="@color/tv_white"
+	                android:textStyle="bold"
+	                android:textSize="25sp" />
+	        </RelativeLayout>
+	    </LinearLayout>
     </LinearLayout>
-    
-    <LinearLayout
+
+    <ImageView
+        android:id="@+id/image_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:baselineAligned="false"
-        android:layout_weight="1"
-        android:orientation="horizontal" >
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/bg_logo" />
 
-        <RelativeLayout
-            android:id="@+id/layout_engineering"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="7.5dp"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/image_engineering"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/bg_engineering" />
-            
-             <TextView
-                android:id="@+id/tv_engineering1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:text="@string/engineering1"
-                android:textColor="@color/tv_white"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/tv_engineering2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/tv_engineering1"
-                android:layout_below="@+id/tv_engineering1"
-                android:text="@string/engineering2"
-                android:textColor="@color/tv_white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignRight="@+id/image_engineering"
-                android:layout_marginRight="5dp"
-                android:layout_below="@+id/tv_engineering2"
-                android:text="@string/engineering3"
-                android:textColor="@color/tv_white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/layout_weather"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7.5dp"
-            android:layout_marginRight="15dp"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/image_weather"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:src="@drawable/bg_weather" />
-            
-            <TextView
-                android:id="@+id/tv_weather1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:text="@string/weather1"
-                android:textColor="@color/tv_white"
-                android:textSize="30sp" />
-            
-            <TextView
-                android:id="@+id/tv_weather2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/tv_weather1"
-                android:layout_marginTop="5dp"
-                android:text="@string/weather2"
-                android:textColor="@color/tv_white"
-                android:textStyle="bold"
-                android:textSize="25sp" />
-        </RelativeLayout>
-    </LinearLayout>
-    
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:baselineAligned="false"
-        android:layout_weight="1"
-        android:orientation="horizontal" >
-
-        <RelativeLayout
-            android:id="@+id/layout_more"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="7.5dp"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/image_more"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/bg_more" />
-            
-            <TextView
-                android:id="@+id/tv_more1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:text="@string/more1"
-                android:textColor="@color/tv_white"
-                android:textSize="30sp" />
-            
-            <TextView
-                android:id="@+id/tv_more2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/tv_more1"
-                android:layout_marginTop="5dp"
-                android:text="@string/more2"
-                android:textColor="@color/tv_white"
-                android:textStyle="bold"
-                android:textSize="25sp" />          
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/layout_about"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="7.5dp"
-            android:layout_marginRight="15dp"
-            android:layout_weight="1">
-
-            <ImageView
-                android:id="@+id/image_about"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:src="@drawable/bg_about" />
-            
-            <TextView
-                android:id="@+id/tv_about1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:text="@string/about1"
-                android:textColor="@color/tv_white"
-                android:textSize="30sp" />
-            
-            <TextView
-                android:id="@+id/tv_about2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/tv_about1"
-                android:layout_marginTop="5dp"
-                android:text="@string/about2"
-                android:textColor="@color/tv_white"
-                android:textStyle="bold"
-                android:textSize="25sp" />
-        </RelativeLayout>
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

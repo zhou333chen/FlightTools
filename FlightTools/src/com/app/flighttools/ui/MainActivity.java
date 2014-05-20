@@ -7,8 +7,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.widget.ImageView;
 
 import com.app.flighttools.util.FileUtils;
 import com.app.flighttools.view.R;
@@ -23,6 +27,7 @@ public class MainActivity extends Activity implements OnClickListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		handler.postDelayed(run, 5000);
 		initResource();
 		try {
 			writeXlsIfNotExist();
@@ -90,4 +95,18 @@ public class MainActivity extends Activity implements OnClickListener{
 			in.close();
 		}
 	}
+	
+	Handler handler = new Handler();
+	Runnable run = new Runnable() {
+		
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			findViewById(R.id.image_logo).setVisibility(View.GONE);
+			findViewById(R.id.layout_content).setVisibility(View.VISIBLE);
+			Animation alphaAnimation = new AlphaAnimation(1.0f, 0f);  
+			alphaAnimation.setDuration(1000);  
+			findViewById(R.id.image_logo).startAnimation(alphaAnimation);  
+		}
+	};
 }
