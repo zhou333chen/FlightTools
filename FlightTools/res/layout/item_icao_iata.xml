@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/tv_four"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SSFS" />
+
+    <TextView
+        android:id="@+id/tv_airport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tv_four"
+        android:text="上海虹桥机场"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_english"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tv_airport"
+        android:text="Shanghai" />
+
+    <TextView
+        android:id="@+id/tv_three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_airport"
+        android:layout_toRightOf="@+id/tv_four"
+        android:layout_marginLeft="20dp"
+        android:text="ABC" />
+	
+</RelativeLayout>
